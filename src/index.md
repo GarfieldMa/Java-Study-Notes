@@ -41,3 +41,9 @@
 ## [The Ultimate Superclass: Object](the_ultimate.html)
 * **Object class**
 * cast
+
+## [GUI and Event-Handling](gui_and_event_handling.html)
+* ``JFrame``
+* Event handling
+* Inner class
+* Layout manager

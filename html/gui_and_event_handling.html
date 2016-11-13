@@ -1,0 +1,632 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+   body,table tr{background-color:#fff}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}pre code,table,table tr{padding:0}hr,pre code{background:0 0}body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;padding:10px 15px}strong,table tr th{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table tr{border-top:1px solid #ccc;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}blockquote{padding:0 15px;border-left:4px solid #ccc}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;white-space:pre;border:none}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+  </style>
+ </head>
+ <body>
+  <h2 id="gui-and-event-handling">
+   GUI and Event-Handling
+  </h2>
+  <p>
+   In Java GUI, y is the vertical axis and x is the horizontal one.
+  </p>
+  <h4 id="jframe">
+   <code>
+    JFrame
+   </code>
+  </h4>
+  <ul>
+   <li>
+    <code>
+     import javax.swing
+    </code>
+   </li>
+   <li>
+    an
+    <strong>
+     object
+    </strong>
+    represents a
+    <strong>
+     window
+    </strong>
+   </li>
+   <li>
+    host all the
+    <strong>
+     Swing component
+    </strong>
+   </li>
+   <li>
+    has
+    <strong>
+     windowing icons
+    </strong>
+    for
+    <strong>
+     minimizing, mximizing* and
+    </strong>
+    closing**
+   </li>
+   <li>
+    <code>
+     JFrame()
+    </code>
+    : default constructor
+   </li>
+   <li>
+    <code>
+     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+    </code>
+    : make program
+    <strong>
+     quit
+    </strong>
+    when window is closed
+   </li>
+   <li>
+    <code>
+     add(someWidget)
+    </code>
+    : add wdiget to the frame
+   </li>
+   <li>
+    <code>
+     add(someWidget, location)
+    </code>
+    : add
+    <code>
+     someWidget
+    </code>
+    into
+    <code>
+     location
+    </code>
+    .
+    <mathjax>
+     $location\in\{BorderLayout.NORTH, BorderLayout.WEST, BorderLayout.CENTER, BorderLayout.EAST, BorderLayout.SOUTH\}$
+    </mathjax>
+   </li>
+   <li>
+    <code>
+     repaint()
+    </code>
+    : repaint the frame and therefore
+    <code>
+     paintComponent()
+    </code>
+    will be called
+   </li>
+   <li>
+    <code>
+     setSize(width,height)
+    </code>
+   </li>
+   <li>
+    <code>
+     setVisible(isVisible)
+    </code>
+    : set the visibility of
+    <code>
+     JFrame
+    </code>
+    as
+    <code>
+     isVisible
+    </code>
+   </li>
+  </ul>
+  <h4 id="swing">
+   <code>
+    Swing
+   </code>
+  </h4>
+  <ul>
+   <li>
+    the widget of the window
+   </li>
+   <li>
+    <code>
+     import javax.swing
+    </code>
+   </li>
+   <li>
+    most of the common Swing components extend from
+    <code>
+     javax.swing.JComponent
+    </code>
+   </li>
+   <li>
+    we classify components into
+    <strong>
+     interactice
+    </strong>
+    and
+    <strong>
+     backgroud
+    </strong>
+    components, however, this distinction is artificial
+   </li>
+   <li>
+    we can usually add
+    <strong>
+     interactive
+    </strong>
+    component into
+    <strong>
+     background
+    </strong>
+    component
+   </li>
+   <li>
+    <code>
+     JLabel
+    </code>
+    :
+    <ul>
+     <li>
+      <code>
+       label.setText(str)
+      </code>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <h4 id="create-a-gui">
+   Create a GUI
+  </h4>
+  <ol>
+   <li>
+    Create a
+    <strong>
+     JFrame
+    </strong>
+    :
+    <code>
+     JFram frame = new JFrame()
+    </code>
+   </li>
+   <li>
+    Create some widgets (Swing):
+    <code>
+     JButton button = new JButton("click me")
+    </code>
+   </li>
+   <li>
+    Add the widget to the frame:
+    <code>
+     frame.add(button)
+    </code>
+   </li>
+   <li>
+    Display:
+   </li>
+  </ol>
+  <pre><code class="java">frame.setSize(300,300);
+frame.setVisible(true);
+</code></pre>
+  <h4 id="event-handling">
+   Event Handling
+  </h4>
+  <ul>
+   <li>
+    <code>
+     import java.awt.event
+    </code>
+   </li>
+   <li>
+    Swing GUI components are
+    <strong>
+     event source
+    </strong>
+    turning
+    <strong>
+     user actions
+    </strong>
+    into
+    <strong>
+     events
+    </strong>
+   </li>
+   <li>
+    <strong>
+     Event Classes
+    </strong>
+    represent certain type of events (e.g.
+    <code>
+     ActionEvent
+    </code>
+    ,
+    <code>
+     MouseEvent
+    </code>
+    )
+    <ul>
+     <li>
+      <code>
+       event.getSource()
+      </code>
+      return the source of event
+     </li>
+    </ul>
+   </li>
+   <li>
+    <strong>
+     listener interface
+    </strong>
+    : implement certain
+    <strong>
+     listener interface
+    </strong>
+    to handle certain events (e.g.
+    <code>
+     ActionListener
+    </code>
+    ,
+    <code>
+     MouseListener
+    </code>
+    )
+    <ul>
+     <li>
+      a
+      <strong>
+       listener interface
+      </strong>
+      may have more than one method
+     </li>
+    </ul>
+   </li>
+   <li>
+    <strong>
+     listener
+    </strong>
+    : the class the implement
+    <strong>
+     listener interface
+    </strong>
+    <ul>
+     <li>
+      <strong>
+       register
+      </strong>
+      : a
+      <strong>
+       listener
+      </strong>
+      must register itself to
+      <strong>
+       event source
+      </strong>
+      to receive events.
+     </li>
+     <li>
+      <strong>
+       register method
+      </strong>
+      : (e.g.
+      <code>
+       addActionListener(someListener)
+      </code>
+      ,
+      <code>
+       addMouseListener(someListener)
+      </code>
+      )
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <h4 id="display-user-designed-graphic">
+   Display User Designed Graphic
+  </h4>
+  <ul>
+   <li>
+    define a
+    <strong>
+     subclass
+    </strong>
+    of
+    <strong>
+     JPanel
+    </strong>
+   </li>
+   <li>
+    override
+    <code>
+     paintComponent(Graphics g)
+    </code>
+    method. However, we will never call this method by ourselves
+   </li>
+   <li>
+    <strong>
+     Graphics
+    </strong>
+    :
+    <ul>
+     <li>
+      <code>
+       g.setColor(Color.CONST)
+      </code>
+      set color as
+      <code>
+       CONST
+      </code>
+      <ul>
+       <li>
+        <code>
+         Color color = new Color(red_c, green_c, blue_c )
+        </code>
+        , where
+        <code>
+         red_c
+        </code>
+        ,
+        <code>
+         green_c
+        </code>
+        and
+        <code>
+         blue_c
+        </code>
+        are integer constant.
+       </li>
+      </ul>
+     </li>
+     <li>
+      <code>
+       g.fillRect(x,y,width,height)
+      </code>
+     </li>
+     <li>
+      <code>
+       g.fillOval(x,y,width,height)
+      </code>
+     </li>
+     <li>
+      <code>
+       g.drawImage(image,width, height,this)
+      </code>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <strong>
+     Graphics2D
+    </strong>
+    : a subclass of
+    <strong>
+     Graphics
+    </strong>
+    <ul>
+     <li>
+      the argument passed in
+      <code>
+       paintComponent(Graphics g)
+      </code>
+      actuallay references to a
+      <strong>
+       Graphics2D
+      </strong>
+      object so we can cast it
+     </li>
+    </ul>
+   </li>
+   <li>
+    <strong>
+     Image
+    </strong>
+    :
+    <ul>
+     <li>
+      <code>
+       Image image = new ImageIcon(file_path).getImage()
+      </code>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <h4 id="inner-class">
+   Inner class
+  </h4>
+  <ul>
+   <li>
+    class defined within another class
+   </li>
+   <li>
+    can access
+    <strong>
+     all
+    </strong>
+    the methods and instance variables of the
+    <strong>
+     outer class
+    </strong>
+    and vice-versa
+   </li>
+   <li>
+    tied to
+    <strong>
+     outer class objects
+    </strong>
+    on the heap
+   </li>
+   <li>
+    can’t access other
+    <strong>
+     outer class
+    </strong>
+    except the one it is tied to
+   </li>
+  </ul>
+  <h4 id="layout-manager">
+   Layout Manager
+  </h4>
+  <ul>
+   <li>
+    <strong>
+     BorderLayout
+    </strong>
+    : default layout for a frame with 5 regions. Nort and South Components will get prefered height and as wide as the frame. East and West Components will get prefered width and as high as remain. Center will get the space remained
+   </li>
+   <li>
+    <strong>
+     FlowLayout
+    </strong>
+    : default layout for a panel. Components are laid out left to right in the order that they are added. When a component doesn’t fit horizontally, it drops to the next “line” in the layout.
+   </li>
+   <li>
+    <strong>
+     BoxLayout
+    </strong>
+    : like a
+    <code>
+     FlowLayout
+    </code>
+    but it can stack components either
+    <strong>
+     vertically
+    </strong>
+    or
+    <strong>
+     horizontally
+    </strong>
+    <ul>
+     <li>
+      <code>
+       setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS))
+      </code>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <strong>
+     GridBagLayout
+    </strong>
+    :
+    <ul>
+     <li>
+      Components are placed in a
+     </li>
+     <li>
+      Rows can be of different heights
+     </li>
+     <li>
+      Columns can be of different widths
+     </li>
+     <li>
+      Components can span multiple rows or columns
+     </li>
+     <li>
+      The size and placement of a component in the grid is specified by a GridBagConstraints object
+     </li>
+     <li>
+      <strong>
+       gridx
+      </strong>
+      x-pos of cell containing leading column
+     </li>
+     <li>
+      <strong>
+       gridy
+      </strong>
+      y-pos of cell containing leading row
+     </li>
+     <li>
+      <strong>
+       gridwidth
+      </strong>
+      num of cells in a row
+     </li>
+     <li>
+      <strong>
+       gridheight
+      </strong>
+      num of cells in a column
+     </li>
+     <li>
+      <strong>
+       weightx
+      </strong>
+      specifies how to distribute extra horizontal space
+     </li>
+     <li>
+      <strong>
+       weighty
+      </strong>
+      specifies how to distribute extra vertical space
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <pre><code class="java">        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel(); 
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.gridy = 0;
+        c.gridwidth = 1; // default value
+        c.gridheight = 1; // default value
+        c.weightx = 0.0; // default value
+        c.weighty = 0.0; // default value
+        c.anchor = GridBagConstraints.CENTER; // default value
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(0, 0, 0, 0); // default value
+        c.ipadx = 0; // default value
+        c.ipady = 0; // default value
+
+        JButton button = new JButton("Button 1");
+        c.weightx = 0.5;
+        panel.add(button, c);
+
+        button = new JButton("Button 2");
+        c.gridx = 1; // 2nd column
+        panel.add(button, c);
+
+        button = new JButton("Button 3");
+        c.gridx = 2; // 3rd column
+        panel.add(button, c);
+
+        button = new JButton("Button 4");
+        c.gridx = 0; // 1st column
+        c.gridy = 1; // 2nd row
+        c.gridwidth = 3; // spans 3 columns
+        c.weightx = 0.0;
+        c.ipady = 40; // makes the button tall
+        panel.add(button, c);
+
+        button = new JButton("Button 5");
+        c.gridx = 1; // 2nd column
+        c.gridy = 2; // 3rd row
+        c.gridwidth = 2; // spans 2 columns
+        c.weighty = 1.0; // takes up extra vertical space
+        c.anchor = GridBagConstraints.SOUTH;
+        c.insets = new Insets(10, 0, 0, 0); // top padding
+        c.ipady = 0;
+        panel.add(button, c);
+
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+</code></pre>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>
